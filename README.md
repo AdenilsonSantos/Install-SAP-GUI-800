@@ -26,10 +26,49 @@ Selecione o pacote criado e exporte ele como um instalar único:
 Escolha uma pasta para onde o arquivo será criado e deixe o processo encerrar
 ![image](https://github.com/user-attachments/assets/9e162e51-04c5-434c-8cf7-1237e47a11de)
 
-##Passo04
+##Passo 04
 Pegue o arquivo que foi criado na pasta de destino, copie ele e inclua em uma outra pasta qualquer e crie um arquivo de instalação para o Intune.
 Há muitos artigos que tratam esse assunto, por exemplo, esse https://www.systemcenterdudes.com/deploy-microsoft-intune-win32-apps/.
 Esse artigo não está focado nisso.
+
+##Passo 05
+Crie um aplicativo Windows app (Win32)
+![image](https://github.com/user-attachments/assets/832cb43d-7d20-4599-84ba-e67f11da6211)
+
+Selecione o arquivo .intunewin criado
+![image](https://github.com/user-attachments/assets/c9e4964a-9a19-4830-abf2-9da8892a424a)
+
+Personalize o App information como voccê quiser, tem vários artigos mostrando como fazer isso
+
+Em Program insira os seguintes comandos
+Instalação: SAP_GUI_8_x86.exe /Silent /Package=SAP_GUI_x86 /skip=wtscheck
+Desinstalação: C:\Program Files (x86)\SAP\SapSetup\Setup\NwSapSetupX.exe /Silent /Uninstall /Package="SAP_GUI_8_x86"
+
+![image](https://github.com/user-attachments/assets/32121e46-5b99-479f-a82d-7748af4d477b)
+
+Em requirements:
+Operating system architecture -> 32-bit e 64-bit
+Minimum operating system: Windows 10 20H2
+
+![image](https://github.com/user-attachments/assets/3bfefce1-213c-458e-ab07-3d7c0e246d61)
+
+Insira a seguinte regra de detecção:
+![image](https://github.com/user-attachments/assets/e5781c5e-2ee8-4336-810d-44a3756c8d51)
+
+
+Em Assignments, insira o grupo de dispositivos ao qual a instalação será aplicada.
+
+
+E isso é tudo, agora é monitorar.
+
+Até mais, meus amigos!!!
+
+
+
+
+
+
+
 
 
 
